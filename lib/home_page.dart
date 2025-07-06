@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             elevation: 0, // remove default shadow
             centerTitle: true,
             title: Text(
-              'Word Wise',
+              'Word Wise !!',
               style: GoogleFonts.pacifico(
                 fontWeight: FontWeight.bold,
                 fontSize: 26,
