@@ -5,33 +5,10 @@ import 'package:music_player/search_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Animated Home Page',
-      home: FirstScreen(), // Starting from another screen to test back arrow
+      debugShowCheckedModeBanner:
+          false, // Starting from another screen to test back arrow
     ),
   );
-}
-
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("First Screen")),
-      body: Center(
-        child: ElevatedButton(
-          child: Text("Go to Home Page"),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-        ),
-      ),
-    );
-  }
 }
 
 class HomePage extends StatefulWidget {
