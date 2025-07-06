@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TrieNode {
   Map<String, TrieNode> children = {};
@@ -118,39 +120,125 @@ class _AutocompleteSearchPageState extends State<AutocompleteSearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Autocomplete Search')),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      hintText: 'Type to search...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      prefixIcon: const Icon(Icons.search),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Expanded(
-                    child: _suggestions.isEmpty
-                        ? const Center(child: Text('No suggestions'))
-                        : ListView.builder(
-                            itemCount: _suggestions.length,
-                            itemBuilder: (context, index) {
-                              return ListTile(
-                                title: Text(_suggestions[index]),
-                                onTap: () =>
-                                    _selectSuggestion(_suggestions[index]),
-                              );
-                            },
-                          ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFF5F6D), Color(0xFF9D50BB)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.4), // deep shadow
+                offset: Offset(0, 6), // down shadow
+                blurRadius: 12, // soft edges
+                spreadRadius: 1, // size of the shadow
+              ),
+            ],
+          ),
+          child: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0, // remove default shadow
+            centerTitle: true,
+            title: Text(
+              'Are you querious?',
+              style: GoogleFonts.pacifico(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    blurRadius: 4,
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(2, 2),
                   ),
                 ],
+              ),
+            ),
+          ),
+        ),
+      ),
+
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFFFCBA4), // Soft Peach
+                    Color(0xFFFF5F6D), // Warm Coral
+                    Color(0xFF9D50BB),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: TextField(
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          hintText: 'Type to search...',
+                          hintStyle: GoogleFonts.pacifico(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                            fontSize: 18,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          prefixIcon: const Icon(Icons.search),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Expanded(
+                      child: _suggestions.isEmpty
+                          ? Center(
+                              child: Text(
+                                'No suggestions',
+                                style: GoogleFonts.pacifico(
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          : ListView.builder(
+                              itemCount: _suggestions.length,
+                              itemBuilder: (context, index) {
+                                return Card(
+                                  color: Colors.white.withAlpha(1),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
+                                  child: ListTile(
+                                    title: Center(
+                                      child: Text(
+                                        _suggestions[index],
+                                        style: GoogleFonts.pacifico(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                    ),
+                                    onTap: () =>
+                                        _selectSuggestion(_suggestions[index]),
+                                  ),
+                                );
+                              },
+                            ),
+                    ),
+                  ],
+                ),
               ),
             ),
     );
