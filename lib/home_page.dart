@@ -64,16 +64,47 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 128, 38, 163),
-        elevation: 9,
-        title: Center(
-          child: Text(
-            'Word Wise',
-            style: GoogleFonts.pacifico(color: Colors.white),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFF5F6D), Color(0xFF9D50BB)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.4), // deep shadow
+                offset: Offset(0, 6), // down shadow
+                blurRadius: 12, // soft edges
+                spreadRadius: 1, // size of the shadow
+              ),
+            ],
+          ),
+          child: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0, // remove default shadow
+            centerTitle: true,
+            title: Text(
+              'Word Wise',
+              style: GoogleFonts.pacifico(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    blurRadius: 4,
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(2, 2),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
+
       body: Container(
         width: double.infinity,
         height: double.infinity,
