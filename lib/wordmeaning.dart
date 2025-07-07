@@ -187,7 +187,7 @@ class _WordMeaningPageState extends State<WordMeaningPage> {
                         const SizedBox(height: 20),
                         Text(
                           meaning ?? '',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.pacifico(
                             fontSize: 22,
                             color: Colors.white70,
                           ),
