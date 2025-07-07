@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/wordmeaning.dart';
 
 class TrieNode {
   Map<String, TrieNode> children = {};
@@ -109,6 +109,11 @@ class _AutocompleteSearchPageState extends State<AutocompleteSearchPage> {
   void _selectSuggestion(String word) {
     _controller.text = word;
     setState(() => _suggestions = []);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => WordMeaningPage(word: word)),
+    );
   }
 
   @override
@@ -190,7 +195,7 @@ class _AutocompleteSearchPageState extends State<AutocompleteSearchPage> {
                           hintText: 'Type to search...',
                           hintStyle: GoogleFonts.pacifico(
                             fontWeight: FontWeight.bold,
-                            color: Colors.black87,
+                            color: Colors.black54,
                             fontSize: 18,
                           ),
                           border: OutlineInputBorder(
