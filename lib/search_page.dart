@@ -143,7 +143,7 @@ class _AutocompleteSearchPageState extends State<AutocompleteSearchPage> {
             elevation: 0, // remove default shadow
             centerTitle: true,
             title: Text(
-              'Are you querious?',
+              'Are you curious?',
               style: GoogleFonts.pacifico(
                 fontWeight: FontWeight.bold,
                 fontSize: 26,
