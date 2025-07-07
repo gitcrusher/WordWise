@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:music_player/home_page.dart';
 import 'package:music_player/onboarding_screen.dart';
 
 void main() async {
