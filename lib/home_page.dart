@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_player/search_page.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 void main() {
   runApp(
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
     )..forward();
 
     _rotationAnimation = Tween(
@@ -122,13 +123,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'click bellow to feed your curiosity',
-              style: GoogleFonts.pacifico(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+            AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText(
+                  'click below to feed your curiosity!!',
+                  textStyle: GoogleFonts.pacifico(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  speed: Duration(milliseconds: 120),
+                ),
+              ],
+              totalRepeatCount: 1,
+              pause: Duration(milliseconds: 2000),
             ),
 
             SizedBox(height: 80),
@@ -526,8 +534,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       );
                     },
                     child: Container(
-                      width: 50,
-                      height: 50,
+                      width: 40,
+                      height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(_radiusAnimation.value),
