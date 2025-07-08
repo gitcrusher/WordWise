@@ -36,10 +36,22 @@ class _UploadTriePageState extends State<UploadTriePage> {
   }
 
   /// Step 2: Build Trie and upload
+  /// Recursively uploads each Trie node to Firebase without overwriting the full path.
+  Future<void> uploadNode(DatabaseReference ref, TrieNode node) async {
+    final updateData = {'end': node.isEnd};
+
+    await ref.update(updateData);
+
+    for (final entry in node.children.entries) {
+      await uploadNode(ref.child(entry.key), entry.value);
+    }
+  }
+
+  /// Step 2: Build Trie and merge upload
   Future<void> uploadCSVToFirebase() async {
     setState(() {
       isUploading = true;
-      statusMessage = "Uploading full trie...";
+      statusMessage = "Uploading trie (merge)...";
     });
 
     try {
@@ -51,8 +63,7 @@ class _UploadTriePageState extends State<UploadTriePage> {
         trie.insert(word);
       }
 
-      final jsonTrie = trie.toJson(trie.root);
-      print("📤 Uploading full trie...");
+      print("📤 Uploading trie node-by-node...");
 
       final dbRef = FirebaseDatabase.instanceFor(
         app: Firebase.app(),
@@ -60,12 +71,12 @@ class _UploadTriePageState extends State<UploadTriePage> {
             'https://wordwiselogin-default-rtdb.asia-southeast1.firebasedatabase.app',
       ).ref('trie_data');
 
-      await dbRef.set(jsonTrie);
+      await uploadNode(dbRef, trie.root);
 
-      setState(() => statusMessage = "✅ Full trie uploaded!");
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('✅ Full trie uploaded!')));
+      setState(() => statusMessage = "✅ Trie merged successfully!");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('✅ Trie merged successfully!')),
+      );
     } catch (e) {
       print("❌ Upload error: $e");
       setState(() => statusMessage = "❌ Error: $e");
