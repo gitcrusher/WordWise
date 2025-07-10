@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/loading_screen.dart';
 import 'package:music_player/search_page.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 1500),
     )..forward();
 
     _rotationAnimation = Tween(
@@ -529,7 +530,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AutocompleteSearchPage(),
+                          builder: (context) => const LoadingScreen(),
                         ),
                       );
                     },
