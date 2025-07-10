@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_player/Home_page.dart';
 
 import 'package:music_player/intro_screen/intro_page1.dart';
 import 'package:music_player/intro_screen/intro_page2.dart';
 import 'package:music_player/intro_screen/intro_page3.dart';
 import 'package:music_player/splash_screen.dart';
+import 'package:music_player/welcome_splash_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -68,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SplashScreen(),
+                              builder: (context) => const WelcomeSplashScreen(),
                             ),
                           );
                         }
