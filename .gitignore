@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Sensitive files to ignore
+lib/wordmeaning.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+.env
