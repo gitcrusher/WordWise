@@ -84,6 +84,8 @@ flutter:
     - assets/images/Ww.png
     - assets/filtered_words.csv
     - assets/images/wordwiseicon.png
+    - assets/animations/Motion-design-loop-[remix].json
+    - assets/animations/loop_first.json
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
