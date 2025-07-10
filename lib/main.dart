@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:music_player/loading_screen.dart';
 import 'package:music_player/onboarding_screen.dart';
+import 'package:music_player/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,14 +10,12 @@ void main() async {
   try {
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp();
-      print(
-        '✅ Firebase initialized',
-      ); // Or use logger.i if you’ve set up logging
+      print('Firebase initialized');
     } else {
-      print('ℹ️ Firebase already initialized'); // Or use logger.i
+      print('Firebase already initialized');
     }
   } catch (e) {
-    print('🔥 Firebase initialization error: $e'); // Or use logger.e
+    print(' Firebase initialization error: $e');
   }
 
   runApp(const MyApp());
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: SplashScreen(),
     );
   }
 }
