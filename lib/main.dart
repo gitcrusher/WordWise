@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:music_player/loading_screen.dart';
 import 'package:music_player/onboarding_screen.dart';
 import 'package:music_player/splash_screen.dart';
+import 'package:music_player/welcome_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: WelcomeSplashScreen(),
     );
   }
 }

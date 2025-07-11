@@ -65,8 +65,8 @@ class _WelcomeSplashScreenState extends State<WelcomeSplashScreen>
             curve: Curves.easeOutBack,
             child: Image.asset(
               'assets/images/welcome.png',
-              height: 120,
-              width: 120,
+              height: 400,
+              width: 400,
             ),
           ),
         ),
