@@ -63,15 +63,10 @@ class _WelcomeSplashScreenState extends State<WelcomeSplashScreen>
             scale: _scale,
             duration: const Duration(milliseconds: 800),
             curve: Curves.easeOutBack,
-            child: Text(
-              'Welcome to the realm of words...',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-                letterSpacing: 1.2,
-              ),
-              textAlign: TextAlign.center,
+            child: Image.asset(
+              'assets/images/welcome.png',
+              height: 120,
+              width: 120,
             ),
           ),
         ),
