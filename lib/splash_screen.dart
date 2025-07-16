@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  double _scale = 1.5; // Initial zoomed-in size
+  double _scale = 0.5; // Initial zoomed-in size
   late AnimationController _controller;
 
   @override
@@ -26,9 +26,9 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     // Start animation after slight delay
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 2000), () {
       setState(() {
-        _scale = 1.0; // Zoom out to normal size
+        _scale = 1.5; // Zoom out to normal size
       });
       _controller.forward(); // Start the animation
     });
@@ -70,7 +70,11 @@ class _SplashScreenState extends State<SplashScreen>
             scale: _scale,
             duration: const Duration(milliseconds: 800),
             curve: Curves.easeOutBack,
-            child: Image.asset('assets/images/Ww.png', width: 180, height: 180),
+            child: Image.asset(
+              'assets/images/wordwiseicon.png',
+              width: 180,
+              height: 180,
+            ),
           ),
         ),
       ),
