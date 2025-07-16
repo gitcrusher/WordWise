@@ -28,7 +28,7 @@ class _UploadTriePageState extends State<UploadTriePage> {
 
     final words = lines
         .map((line) => line.split(',')[0].trim().toLowerCase())
-        .where((word) => word.isNotEmpty && word.length <= 32) // ✅ only <=32
+        .where((word) => word.isNotEmpty && word.length <= 32) //  only <=32
         .toSet()
         .toList();
 
