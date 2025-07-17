@@ -183,7 +183,7 @@ class _TenWordsPageState extends State<TenWordsPage> {
                         vertical: 40,
                       ),
                       child: SizedBox(
-                        height: 450,
+                        height: 550,
                         width: double.infinity,
                         child: Container(
                           decoration: BoxDecoration(
