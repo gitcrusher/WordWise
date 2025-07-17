@@ -53,7 +53,7 @@ dependencies:
   audioplayers: ^6.5.0
   just_audio: ^0.10.4
   confetti: ^0.8.0
-
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
