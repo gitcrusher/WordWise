@@ -24,7 +24,7 @@ class _WelcomeSplashScreenState extends State<WelcomeSplashScreen>
       duration: const Duration(seconds: 1),
     );
 
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
         _scale = 1.0;
       });
