@@ -45,7 +45,7 @@ class _TenWordsPageState extends State<TenWordsPage> {
           String word = allWords[index];
           String meaning = await _fetchMeaning(word);
 
-          if (!meaning.startsWith("❗")) {
+          if (!meaning.startsWith(" ")) {
             results.add({"word": word, "meaning": meaning});
           }
           index++;
@@ -55,7 +55,7 @@ class _TenWordsPageState extends State<TenWordsPage> {
           _wordsWithMeanings = results;
         });
       } else {
-        print("❌ No valid data found in trie_data");
+        print(" No valid data found in trie_data");
       }
     } catch (e) {
       print("🔥 Error fetching from trie_data: $e");
@@ -77,13 +77,13 @@ class _TenWordsPageState extends State<TenWordsPage> {
             return shortdef[0];
           }
         }
-        return "❗ Meaning not found";
+        return " Meaning not found";
       } else {
-        return "❗ API error";
+        return " API error";
       }
     } catch (e) {
-      print("❌ Error fetching meaning for $word: $e");
-      return "❗ Error loading meaning";
+      print("Error fetching meaning for $word: $e");
+      return " Error loading meaning";
     }
   }
 
@@ -182,7 +182,7 @@ class _TenWordsPageState extends State<TenWordsPage> {
                               Text(
                                 '${index + 1}. ${_wordsWithMeanings[index]["word"]}',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.pacifico(
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.white,
@@ -192,7 +192,7 @@ class _TenWordsPageState extends State<TenWordsPage> {
                               Text(
                                 _wordsWithMeanings[index]["meaning"] ?? '',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.pacifico(
                                   fontSize: 20,
                                   color: Colors.white.withOpacity(0.95),
                                 ),
