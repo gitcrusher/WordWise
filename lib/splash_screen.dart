@@ -70,11 +70,7 @@ class _SplashScreenState extends State<SplashScreen>
             scale: _scale,
             duration: const Duration(milliseconds: 800),
             curve: Curves.easeOutBack,
-            child: Image.asset(
-              'assets/images/wordwiseicon.png',
-              width: 180,
-              height: 180,
-            ),
+            child: Image.asset('assets/images/Ww.png', width: 180, height: 180),
           ),
         ),
       ),
