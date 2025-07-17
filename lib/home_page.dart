@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:music_player/loading_screen.dart';
 import 'package:music_player/search_page.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:music_player/tenwords.dart';
 
 void main() {
   runApp(
@@ -569,6 +570,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: 80),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 16,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(color: Colors.deepPurpleAccent, width: 2),
+                ),
+                elevation: 8,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const TenWordsPage(), //Replace if needed
+                  ),
+                );
+              },
+              child: Text(
+                'Learn 10 new words for today!!!',
+                style: GoogleFonts.pacifico(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),
