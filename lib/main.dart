@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:music_player/loading_screen.dart';
 import 'package:music_player/onboarding_screen.dart';
+import 'package:music_player/search_page.dart';
 import 'package:music_player/splash_screen.dart';
 import 'package:music_player/tenwords.dart';
 import 'package:music_player/welcome_splash_screen.dart';
+import 'package:music_player/wordmeaning.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
