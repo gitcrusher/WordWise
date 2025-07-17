@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:music_player/secret.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:music_player/secret.dart';
 
 class WordMeaningPage extends StatefulWidget {
   final String word;
@@ -24,8 +25,8 @@ class _WordMeaningPageState extends State<WordMeaningPage> {
   YoutubePlayerController? _youtubeController;
   final AudioPlayer _audioPlayer = AudioPlayer();
 
-  final String youTubeApiKey = Secrets.merriamApiKey;
-  final String merriamApiKey = Secrets.youtubeApiKey;
+  final String youTubeApiKey = Secrets.youtubeApiKey;
+  final String merriamApiKey = Secrets.merriamApiKey;
   @override
   void initState() {
     super.initState();
