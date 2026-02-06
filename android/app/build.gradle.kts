@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.music_player"
-        minSdk = 23 // ✅ Firebase Auth now requires minSdk 23
+        minSdk = flutter.minSdkVersion // ✅ Firebase Auth now requires minSdk 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
