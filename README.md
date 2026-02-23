@@ -28,8 +28,6 @@ lib/
 
 ## Features
 
-- Music playlist playback
-- Search functionality
 - Word learning with definitions
 - Daily word challenges
 - Onboarding and intro tutorials
@@ -47,10 +45,9 @@ Screenshots
 #### Flash page
 ![Screenshot 1](screenshots/first.png)
 #### Onboarding pages
-![Screenshot 2](screenshots/second.png)
 ![Screenshot 3](screenshots/third.png)
 ![Screenshot 4](screenshots/fourth.png)
-
+KO
 ![Screenshot 5](screenshots/fifth.png)
 ![Screenshot 6](screenshots/sixth.png)
 ![Screenshot 7](screenshots/eighth.png)
